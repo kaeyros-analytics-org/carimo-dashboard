@@ -8,14 +8,6 @@ ui <- function(id){
                      introjsUI(),
                      useShinyjs(),
                      tags$head(
-                       # # Inclure le JavaScript nécessaire pour la redirection
-                       # tags$script(
-                       #   '
-                       #    Shiny.addCustomMessageHandler("redirect", function(message) {
-                       #      window.location = message;
-                       #    });
-                       #    '
-                       # )
                      ),
                      filterStatesRouter_ui("filterStates")
                    ), 
@@ -28,10 +20,7 @@ ui <- function(id){
                                           walkthrough = headerWalkthrough_ui(id = "walkthrough")
                  ),
                  ################# Content of Body display
-                 contentSection = tagList(textOutput("url_param"), mainContentRouter_ui("mainContentRouter")
-                                          ) 
+                 contentSection = mainContentRouter_ui("mainContentRouter")
       )
   
 }
-
-
