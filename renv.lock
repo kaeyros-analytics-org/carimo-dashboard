@@ -1,0 +1,672 @@
+{
+  "R": {
+    "Version": "4.3.2",
+    "Repositories": [
+      {
+        "Name": "BioCsoft",
+        "URL": "https://bioconductor.org/packages/3.18/bioc"
+      },
+      {
+        "Name": "BioCann",
+        "URL": "https://bioconductor.org/packages/3.18/data/annotation"
+      },
+      {
+        "Name": "BioCexp",
+        "URL": "https://bioconductor.org/packages/3.18/data/experiment"
+      },
+      {
+        "Name": "BioCworkflows",
+        "URL": "https://bioconductor.org/packages/3.18/workflows"
+      },
+      {
+        "Name": "BioCbooks",
+        "URL": "https://bioconductor.org/packages/3.18/books"
+      },
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    "DBI": {
+      "Package": "DBI",
+      "Version": "1.2.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "065ae649b05f1ff66bb0c793107508f5"
+    },
+    "DT": {
+      "Package": "DT",
+      "Version": "0.33",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "crosstalk",
+        "htmltools",
+        "htmlwidgets",
+        "httpuv",
+        "jquerylib",
+        "jsonlite",
+        "magrittr",
+        "promises"
+      ],
+      "Hash": "64ff3427f559ce3f2597a4fe13255cb6"
+    },
+    "PKI": {
+      "Package": "PKI",
+      "Version": "0.1-14",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "base64enc"
+      ],
+      "Hash": "f5b9c6b2f62f1fa3dd53fd1ddccbb241"
+    },
+    "R.methodsS3": {
+      "Package": "R.methodsS3",
+      "Version": "1.8.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "278c286fd6e9e75d0c2e8f731ea445c8"
+    },
+    "R.oo": {
+      "Package": "R.oo",
+      "Version": "1.26.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "R.methodsS3",
+        "methods",
+        "utils"
+      ],
+      "Hash": "4fed809e53ddb5407b3da3d0f572e591"
+    },
+    "R.utils": {
+      "Package": "R.utils",
+      "Version": "2.12.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R.methodsS3",
+        "R.oo",
+        "methods",
+        "tools",
+        "utils"
+      ],
+      "Hash": "3dc2829b790254bfba21e60965787651"
+    },
+    "RMySQL": {
+      "Package": "RMySQL",
+      "Version": "0.10.27",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DBI",
+        "R",
+        "methods"
+      ],
+      "Hash": "23f94b9f026a5baa667046bfbd17bc6e"
+    },
+    "RSQLite": {
+      "Package": "RSQLite",
+      "Version": "2.3.7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DBI",
+        "R",
+        "bit64",
+        "blob",
+        "cpp11",
+        "memoise",
+        "methods",
+        "pkgconfig",
+        "plogr",
+        "rlang"
+      ],
+      "Hash": "46b45a4dd7bb0e0f4e3fc22245817240"
+    },
+    "billboarder": {
+      "Package": "billboarder",
+      "Version": "0.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "ggplot2",
+        "htmltools",
+        "htmlwidgets",
+        "jsonlite",
+        "magrittr",
+        "rlang",
+        "scales",
+        "shiny"
+      ],
+      "Hash": "3d68c7b5349e57322e41a8d7ef5ca60f"
+    },
+    "bit": {
+      "Package": "bit",
+      "Version": "4.0.5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "d242abec29412ce988848d0294b208fd"
+    },
+    "bit64": {
+      "Package": "bit64",
+      "Version": "4.0.5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "bit",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "9fe98599ca456d6552421db0d6772d8f"
+    },
+    "blob": {
+      "Package": "blob",
+      "Version": "1.2.4",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "methods",
+        "rlang",
+        "vctrs"
+      ],
+      "Hash": "40415719b5a479b87949f3aa0aee737c"
+    },
+    "dplyr": {
+      "Package": "dplyr",
+      "Version": "1.1.4",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "R6",
+        "cli",
+        "generics",
+        "glue",
+        "lifecycle",
+        "magrittr",
+        "methods",
+        "pillar",
+        "rlang",
+        "tibble",
+        "tidyselect",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "fedd9d00c2944ff00a0e2696ccf048ec"
+    },
+    "flextable": {
+      "Package": "flextable",
+      "Version": "0.9.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "data.table",
+        "gdtools",
+        "grDevices",
+        "graphics",
+        "grid",
+        "htmltools",
+        "knitr",
+        "officer",
+        "ragg",
+        "rlang",
+        "rmarkdown",
+        "stats",
+        "utils",
+        "uuid",
+        "xml2"
+      ],
+      "Hash": "b10ea358275721a0e90080d4a55a1a38"
+    },
+    "gdtools": {
+      "Package": "gdtools",
+      "Version": "0.3.7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "Rcpp",
+        "curl",
+        "fontquiver",
+        "gfonts",
+        "htmltools",
+        "systemfonts",
+        "tools"
+      ],
+      "Hash": "b53e23731a5946448ad888efca14d2df"
+    },
+    "glue": {
+      "Package": "glue",
+      "Version": "1.7.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "e0b3a53876554bd45879e596cdb10a52"
+    },
+    "leaflet": {
+      "Package": "leaflet",
+      "Version": "2.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "RColorBrewer",
+        "crosstalk",
+        "htmltools",
+        "htmlwidgets",
+        "jquerylib",
+        "leaflet.providers",
+        "magrittr",
+        "methods",
+        "png",
+        "raster",
+        "scales",
+        "sp",
+        "stats",
+        "viridisLite",
+        "xfun"
+      ],
+      "Hash": "ca012d4a706e21ce217ba15f22d402b2"
+    },
+    "leaflet.providers": {
+      "Package": "leaflet.providers",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "htmltools"
+      ],
+      "Hash": "c0b81ad9d5d932772f7a457ac398cf36"
+    },
+    "lubridate": {
+      "Package": "lubridate",
+      "Version": "1.9.3",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "generics",
+        "methods",
+        "timechange"
+      ],
+      "Hash": "680ad542fbcf801442c83a6ac5a2126c"
+    },
+    "markdown": {
+      "Package": "markdown",
+      "Version": "1.13",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "commonmark",
+        "utils",
+        "xfun"
+      ],
+      "Hash": "074efab766a9d6360865ad39512f2a7e"
+    },
+    "officer": {
+      "Package": "officer",
+      "Version": "0.6.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R6",
+        "grDevices",
+        "graphics",
+        "openssl",
+        "ragg",
+        "stats",
+        "utils",
+        "uuid",
+        "xml2",
+        "zip"
+      ],
+      "Hash": "dc703d9a479e428a15dc6f82e268387e"
+    },
+    "openxlsx": {
+      "Package": "openxlsx",
+      "Version": "4.2.5.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "Rcpp",
+        "grDevices",
+        "methods",
+        "stats",
+        "stringi",
+        "utils",
+        "zip"
+      ],
+      "Hash": "c03b4c18d42da881fb8e15a085c2b9d6"
+    },
+    "plogr": {
+      "Package": "plogr",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "09eb987710984fc2905c7129c7d85e65"
+    },
+    "plotly": {
+      "Package": "plotly",
+      "Version": "4.10.4",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "RColorBrewer",
+        "base64enc",
+        "crosstalk",
+        "data.table",
+        "digest",
+        "dplyr",
+        "ggplot2",
+        "htmltools",
+        "htmlwidgets",
+        "httr",
+        "jsonlite",
+        "lazyeval",
+        "magrittr",
+        "promises",
+        "purrr",
+        "rlang",
+        "scales",
+        "tibble",
+        "tidyr",
+        "tools",
+        "vctrs",
+        "viridisLite"
+      ],
+      "Hash": "a1ac5c03ad5ad12b9d1597e00e23c3dd"
+    },
+    "pool": {
+      "Package": "pool",
+      "Version": "1.0.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DBI",
+        "R",
+        "R6",
+        "later",
+        "methods",
+        "rlang"
+      ],
+      "Hash": "b336b9f1b3cc72033258c70dc17edbf1"
+    },
+    "rJava": {
+      "Package": "rJava",
+      "Version": "1.0-11",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "524167e771b81342f8dd7a891ed3afa8"
+    },
+    "reactable": {
+      "Package": "reactable",
+      "Version": "0.4.4",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "digest",
+        "htmltools",
+        "htmlwidgets",
+        "jsonlite",
+        "reactR"
+      ],
+      "Hash": "6069eb2a6597963eae0605c1875ff14c"
+    },
+    "readxl": {
+      "Package": "readxl",
+      "Version": "1.4.3",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "cellranger",
+        "cpp11",
+        "progress",
+        "tibble",
+        "utils"
+      ],
+      "Hash": "8cf9c239b96df1bbb133b74aef77ad0a"
+    },
+    "renv": {
+      "Package": "renv",
+      "Version": "1.0.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "41b847654f567341725473431dd0d5ab"
+    },
+    "rintrojs": {
+      "Package": "rintrojs",
+      "Version": "0.3.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "jsonlite",
+        "shiny"
+      ],
+      "Hash": "e01800bef019328509364ab655fbcca6"
+    },
+    "rsconnect": {
+      "Package": "rsconnect",
+      "Version": "1.3.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "PKI",
+        "R",
+        "cli",
+        "curl",
+        "digest",
+        "jsonlite",
+        "lifecycle",
+        "openssl",
+        "packrat",
+        "renv",
+        "rlang",
+        "rstudioapi",
+        "tools",
+        "yaml"
+      ],
+      "Hash": "90dc9ac04cec50f25657b077d4aaca57"
+    },
+    "scrypt": {
+      "Package": "scrypt",
+      "Version": "0.1.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "Rcpp"
+      ],
+      "Hash": "5669c376aea6546ff938528588101b7a"
+    },
+    "sf": {
+      "Package": "sf",
+      "Version": "1.0-16",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DBI",
+        "R",
+        "Rcpp",
+        "classInt",
+        "grDevices",
+        "graphics",
+        "grid",
+        "magrittr",
+        "methods",
+        "s2",
+        "stats",
+        "tools",
+        "units",
+        "utils"
+      ],
+      "Hash": "ad57b543f7c3fca05213ba78ff63df9b"
+    },
+    "shiny": {
+      "Package": "shiny",
+      "Version": "1.8.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "bslib",
+        "cachem",
+        "commonmark",
+        "crayon",
+        "fastmap",
+        "fontawesome",
+        "glue",
+        "grDevices",
+        "htmltools",
+        "httpuv",
+        "jsonlite",
+        "later",
+        "lifecycle",
+        "methods",
+        "mime",
+        "promises",
+        "rlang",
+        "sourcetools",
+        "tools",
+        "utils",
+        "withr",
+        "xtable"
+      ],
+      "Hash": "54b26646816af9960a4c64d8ceec75d6"
+    },
+    "shiny.fluent": {
+      "Package": "shiny.fluent",
+      "Version": "0.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "htmltools",
+        "jsonlite",
+        "purrr",
+        "shiny",
+        "shiny.react"
+      ],
+      "Hash": "b3bfeca60e3a4ce92effc664a8594f9a"
+    },
+    "shinyWidgets": {
+      "Package": "shinyWidgets",
+      "Version": "0.8.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "anytime",
+        "bslib",
+        "grDevices",
+        "htmltools",
+        "jsonlite",
+        "rlang",
+        "sass",
+        "shiny"
+      ],
+      "Hash": "bc918b6911c4e928e24a9928295de834"
+    },
+    "shinycssloaders": {
+      "Package": "shinycssloaders",
+      "Version": "1.0.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "digest",
+        "glue",
+        "grDevices",
+        "shiny"
+      ],
+      "Hash": "f39bb3c44a9b496723ec7e86f9a771d8"
+    },
+    "shinyjs": {
+      "Package": "shinyjs",
+      "Version": "2.1.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "digest",
+        "jsonlite",
+        "shiny"
+      ],
+      "Hash": "802e4786b353a4bb27116957558548d5"
+    },
+    "shinymanager": {
+      "Package": "shinymanager",
+      "Version": "1.0.410",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DBI",
+        "DT",
+        "R.utils",
+        "R6",
+        "RSQLite",
+        "billboarder",
+        "htmltools",
+        "openssl",
+        "scrypt",
+        "shiny"
+      ],
+      "Hash": "7992f5ecc5e8d40200dc8ba4e97d33eb"
+    },
+    "stringr": {
+      "Package": "stringr",
+      "Version": "1.5.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "cli",
+        "glue",
+        "lifecycle",
+        "magrittr",
+        "rlang",
+        "stringi",
+        "vctrs"
+      ],
+      "Hash": "960e2ae9e09656611e0b8214ad543207"
+    }
+  }
+}
