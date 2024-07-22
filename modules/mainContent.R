@@ -18,7 +18,7 @@ mainContentRouter_server <- function(input, output, session, filterStates) {
   observeEvent(filterStates$dataNavi$dataset, 
                { print(paste("mon dataset: ", filterStates$dataNavi$dataset))
                  # generate Ressources content ####
-                 if(filterStates$dataNavi$dataset == "Map") {
+                 if(filterStates$dataNavi$dataset == "Carte") {
                    output$mainContent <- renderUI({
                      div( id = "navtabs",
                           ui_map

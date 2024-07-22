@@ -1,0 +1,12 @@
+name: carimo_dashboard
+title: carimo_dashboard
+username: winniemafouo
+account: winniemafouo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12290272
+bundleId: 8842371
+url: https://winniemafouo.shinyapps.io/carimo_dashboard/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

@@ -31,15 +31,21 @@ library(RMySQL)
 library(officer)
 library(lubridate)
 library(flextable)
+library(stringdist)
+library(fuzzyjoin)
+library(ggplot2)
+library(scales)
+library(osmdata)
+library(tidyr)
 
 filterStates <- reactiveValues(
   # dataset
-  dataNavi = list(dataset = "Home"),
+  dataNavi = list(dataset = "Accueil"),
   allDataset = NULL,
   allSubItem = NULL,
   countrySelected = "Cameroun",
-  citySelected = "Yaoundé",
-  statusSelected = "all",
+  citySelected = "TOUT",
+  statusSelected = "TOUT",
   date_start = "2024-01-01",
   date_end = Sys.Date(),
   filterButton = FALSE
@@ -55,7 +61,10 @@ eval(parse('./modules/snapshot.R', encoding="UTF-8"))
 
 ################ Load loginc modules
 eval(parse('./modules/maps.R', encoding="UTF-8"))
-eval(parse('./modules/dashboard.r', encoding="UTF-8"))
+eval(parse('./modules/dashboard.R', encoding="UTF-8"))
+eval(parse('./modules/dashboard_values.R', encoding="UTF-8"))
+eval(parse('./modules/preprocessing1.R', encoding="UTF-8"))
+
 
 # visualization modules ###
 eval(parse('./modules/mainContent.R', encoding="UTF-8"))

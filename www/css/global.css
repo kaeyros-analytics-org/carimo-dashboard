@@ -1,5 +1,13 @@
 /* BundesSans font */
 @font-face {
+  font-family: "Articulat-CF";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/ArticulatCF-Normal.otf") format("otf");
+}
+
+@font-face {
   font-family: "BundesSansWeb-Regular";
   font-weight: 400;
   font-style: normal;
@@ -50,7 +58,7 @@
 }
 
 body {
-    font-family: "BundesSansWeb-Regular", Arial, Helvetica, sans-serif !important;
+    font-family: "Articulat-CF", Arial, Helvetica, sans-serif !important;
     padding-bottom: 0px;
     position: relative;
     min-height: 100%;
@@ -187,8 +195,10 @@ a > i {
   background-color: rgb(232,245,251);
   color:  #3392c5;
   font-weight: bold;
-  margin-left: 15%;
-  margin-right: 15%
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 12px;
+  width:7rem;
 }
 
 .modal-dialog{

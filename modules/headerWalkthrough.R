@@ -17,14 +17,14 @@ headerWalkthrough_server <- function(input,
   observeEvent(input$startTour, {
     print("Start Tour")
     
-    if (filterStates$dataNavi$dataset != "Home") {
+    if (filterStates$dataNavi$dataset != "Accueil") {
       
       dataset <- filterStates$dataNavi$dataset
       
       print(dataset)
       
       if (dataset == "Dashboard") tabset = "dashboard"
-      if (dataset == "Map") tabset = ""
+      if (dataset == "Carte") tabset = ""
       
       if (tabset == "dashboard") {
         df <- helpText %>% 
@@ -60,7 +60,7 @@ headerWalkthrough_server <- function(input,
           )
         )
       }
-    } else if (filterStates$dataNavi$dataset == "Home") {
+    } else if (filterStates$dataNavi$dataset == "Accueil") {
       df <- helpText %>% 
         filter(navtab == "allgemein") 
       rintrojs::introjs(

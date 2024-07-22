@@ -45,7 +45,6 @@ li.nav-item.active {
 	width: 100%;
 	position: absolute;
 	z-index: 2;
-	background-color: #FEFEFE;
 	height: 100px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid rgba(169,169,169, 0.8);

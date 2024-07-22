@@ -1,3 +1,4 @@
+localisation <- shiny::reactiveFileReader(1000, NULL, "data/localisation.rds", readRDS)
 
 map_ui <- function(id){
  
@@ -12,15 +13,32 @@ map_ui <- function(id){
 map_server <- function(input, output, session, filterStates){
   
   output$map_plot <- renderLeaflet({
-    map <- leaflet() %>%
-      addProviderTiles(providers$CartoDB.Positron) %>%  # Ajouter des tuiles CartoDB Positron
-      setView(lng = 12.3547, lat = 7.3697, zoom = 6) %>%  # Centrer la carte sur le Cameroun
-      
-      # Ajouter des marqueurs et des cercles pour exemple (optionnel)
-      addMarkers(lng = 11.5178, lat = 3.8480, popup = "Yaoundé") %>%
-      addCircles(lng = 11.5178, lat = 3.8480, radius = 50000, color = "blue", popup = "Cercle à Yaoundé")
+    polygon_popup <- paste0("<strong>",localisation()$quartier,"</strong>", "<br>",
+                            "<strong>Nombre de clients: </strong>", localisation()$count
+    )%>% 
+      lapply(htmltools::HTML)
     
-    # Afficher la carte
-    map
-  }) # end output$map_plot
+    world <- maps::map("world", fill=TRUE, plot=FALSE)
+    world_map <- maptools::map2SpatialPolygons(world, sub(":.*$", "", world$names))
+    world_map <- sp::SpatialPolygonsDataFrame(world_map,
+                                              data.frame(country=names(world_map),
+                                                         stringsAsFactors=FALSE),
+                                              FALSE)
+    
+    choosen_countries <- "Cameroon"
+    
+    target_map <- subset(world_map, country %in% choosen_countries)
+    
+    fig_map <- leaflet(data = target_map) %>%
+      addTiles() %>%
+      addPolygons(weight=1) %>%
+      leaflet::addTiles() %>%
+      leaflet::addAwesomeMarkers(
+        data = localisation(),
+        lng = ~longitude, lat = ~latitude,
+        popup = polygon_popup, label = polygon_popup,
+        clusterOptions = leaflet::markerClusterOptions())
+    
+    fig_map
+  }) 
 }

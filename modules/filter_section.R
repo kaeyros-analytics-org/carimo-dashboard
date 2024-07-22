@@ -21,10 +21,10 @@ filterStatesRouter_ui <- function(id) {
 filterStatesRouter_server <- function(input, output, session, filterStates) {
   #ns <- session$ns
   observeEvent(filterStates$dataNavi$dataset, {
-    if(filterStates$dataNavi$dataset == "Home"){ ########## We don't need to display filter when we are at home page.
+    if(filterStates$dataNavi$dataset == "Accueil"){ ########## We don't need to display filter when we are at home page.
       
       output$dateRange <- renderUI({
-        "Quit home to see filter."
+        "Quittez l'accueil pour voir les filtres"
       })
       output$country <- renderUI({
       ""
@@ -92,7 +92,8 @@ filterStatesRouter_server <- function(input, output, session, filterStates) {
       ################## city selection filter
       output$city <- renderUI({
         selection <- filterStates$citySelected
-        choices = c("Yaounde", "Douala", "Bafoussam", "Bertoua", "etc...")
+        #choices = c("TOUT","YAOUNDÉ", "EDEA","BAFOUSSAM")
+        choices = c("TOUT",unique(data_unique$ville))
         tagList(
           div(class="sidebar-header", tags$a("Sélection de la ville: ")),
           backendTooltip(span(`data-toggle`="tooltip",
@@ -109,7 +110,7 @@ filterStatesRouter_server <- function(input, output, session, filterStates) {
       ################## agence selection filter
       output$status <- renderUI({
         selection <- filterStates$agencySelected
-        choices = c("all", "old", "new")
+        choices = c("TOUT", "ANCIEN", "NOUVEAU")
         tagList(
           div(class="sidebar-header", tags$a("Choisir le Status: ")),
           backendTooltip(span(`data-toggle`="tooltip",
@@ -125,9 +126,9 @@ filterStatesRouter_server <- function(input, output, session, filterStates) {
       
       output$filter_button <- renderUI({
         DefaultButton.shinyInput("filter_data", class = "btn-filter",
-                                 text = "Appliquer le filtre",
+                                 text = "Filtrer",
                                  iconProps = list(iconName = "Refresh"),
-                                 style = "background-color: #0093FF; color: #fff;"
+                                 style = "background-color: #3160e0; color: #fff;"
         )
       })
       
@@ -177,9 +178,10 @@ filterStatesRouter_server <- function(input, output, session, filterStates) {
       ############# Button to Reset a filter
       output$reset_filter <- renderUI({
         DefaultButton.shinyInput("reset_filter", class = "btn-filter",
-                                 text = "Reset Filter",
+                                 text = "Réinitialiser",
                                  iconProps = list(iconName = "Refresh"),
-                                 style = "background-color: #fff; color: #000;"
+                                 #style = "background-color: #fff; color: #000;"
+                                 style = "background-color: #3160e0; color: #fff;"
         )
       })
       

@@ -1,10 +1,10 @@
 /* BundesSans font */
 @font-face {
-  font-family: "BundesSansWeb-Regular";
+  font-family: "Articulat CF";
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  src: url("../fonts/BundesSansWeb-Regular.eot"), url("../fonts/BundesSansWeb-Regular.ttf") format("truetype"), url("../fonts/BundesSansWeb-Regular.woff") format("woff");
+  src: url("../fonts/Fontspring-DEMO-articulatcf-normal.otf") format("truetype");
 }
 
 @font-face {
@@ -50,7 +50,8 @@
 }
 
 body {
-    font-family: "BundesSansWeb-Regular", Arial, Helvetica, sans-serif !important;
+  background-color: #ECECEC;
+    font-family: "Articulat CF", sans-serif !important;
     padding-bottom: 0px;
     position: relative;
     min-height: 100%;
