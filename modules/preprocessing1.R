@@ -6,28 +6,7 @@ library(fuzzyjoin)
 library(stringr)
 library(plotly)
 
-# Fonction pour convertir les valeurs numériques en dates et les catégoriser
-convert_and_categorize <- function(x) {
-  if (grepl("^\\d+$", x)) {
-    date <- as.Date("1900-01-01") + as.numeric(x) - 2
-    age <- as.numeric(format(Sys.Date(), "%Y")) - as.numeric(format(date, "%Y"))
-    if (age < 18){
-      return("18-25")
-    }else if (age >= 18 && age <= 25) {
-      return("18-25")
-    } else if (age >= 26 && age <= 35) {
-      return("26-35")
-    } else if (age >= 36 && age <= 55) {
-      return("36-55")
-    } else {
-      return("56+")
-    }
-  } else {
-    return(x)
-  }
-}
-
-villes_connues <- c("YAOUNDÉ", "EDEA","BAFOUSSAM","MAROUA","GAROUA")
+villes_connues <- c("YAOUNDÉ", "EDEA","BAFOUSSAM","MAROUA","GAROUA","DOUALA")
 
 
 # Fonction pour extraire la ville
@@ -62,25 +41,12 @@ extract_and_format_date <- function(datetime_str) {
 # Spécifiez le chemin du dossier contenant les fichiers Excel
 path <- getwd()
 folder_path <- paste(path,"/data",sep = "")
-#data <- read.csv(paste(folder_path,"/users.csv",sep = ""))
-data <- read_excel((paste(folder_path,"/users.xls",sep = "")))
-data1 <- read_excel((paste(folder_path,"/carimo_data_0308_07.xlsx",sep = "")))
-data2 <- read_excel((paste(folder_path,"/carimo_0910_07.xlsx",sep = "")))
+data <- read_excel((paste(folder_path,"/carimo_omnisport.xls",sep = "")))
 data$achat_category <- str_to_lower(data$achat_category)
-data1$achat_category <- str_to_lower(data1$achat_category)
-data2$achat_category <- str_to_lower(data2$achat_category)
-
 
 path_product <- paste(folder_path,"/carimo_products_1.xlsx", sep = "")
 products <- read_excel(path_product,sheet = "products")
 
-data <- data %>%
-  filter(!str_detect(name, "Marc Arthur FOUDA") & !str_detect(name, "DOM") & !str_detect(name, "dom2")
-         & !str_detect(name, "Kaeyros") & !str_detect(achat_category, "Test") & !str_detect(achat_category, "test")) %>%
-  filter(!(name == "Eyenga pancrace" & is.na(isWinner)))
-
-
-data <- rbind(data,data1,data2)
 data <- data %>%
   mutate(across(everything(), ~ gsub("ã©", "é", .))) %>%
   mutate(across(everything(), ~ gsub("ã¨", "è", .))) %>% 
@@ -98,8 +64,7 @@ data <- data %>%
   mutate(formatted_date = sapply(createdAt, extract_and_format_date))
 data$formatted_date <- as.character(data$formatted_date)
 data$formatted_date <- as.Date(data$formatted_date)
-data <- data %>%
-  mutate(Age = sapply(age, convert_and_categorize))
+data$Age <- data$age
 
 data$location_patenaire <- stringr::str_to_upper(data$location_patenaire)
 
@@ -111,19 +76,20 @@ data <- data %>%
 data$ville <-ifelse(data$ville=="", "YAOUNDÉ",data$ville)
 data$quartier <-ifelse(data$quartier=="", data$ville,data$quartier)
 data$carimo_product <- ifelse(data$carimo_product=="true","ANCIEN","NOUVEAU")
-data$quartier <- gsub(",BILEL AUSSI","ODZA", data$quartier)
-data$quartier <- gsub("\\(NGOUSSO\\)","NGOUSSO", data$quartier)
-data$quartier <- gsub("\\(AWAE\\)","AWAE", data$quartier) 
-data$quartier <- gsub("\\(TSINGA VILLAGE \\)","TSINGA VILLAGE", data$quartier)
+data$quartier <- gsub("NVOG BIG","MVOG MBI", data$quartier)
+data$quartier <- gsub("MVOG BI","MVOG MBI", data$quartier)
+data$quartier <- gsub("Ã‰COLE DES POSTS","ECOLE DES POSTES", data$quartier) 
+data$quartier <- gsub("SIMBOG","SIMBOCK", data$quartier)
 data$quartier <- gsub("Ã‰MANA \\( \\)","EMANA", data$quartier)
 data$quartier <- gsub("\\(ÉMANA\\)","EMANA", data$quartier)
-data$quartier <- gsub("MENDON","MENDONG", data$quartier)
-data$quartier <- gsub("MENDONGG","MENDONG", data$quartier)
-data$quartier <- gsub("NGO EKELE","NGOA EKELE",data$quartier) 
-data$quartier <- gsub("CITÉ VERTE","CITE VERTE",data$quartier) 
-data$quartier <- gsub("SYMBOCK","SIMBOCK",data$quartier) 
-data$quartier <- gsub("MESSASI","MESSASSI",data$quartier) 
+data$quartier <- gsub("BITING","BITENG", data$quartier)
+data$quartier <- gsub("BATA","NLONGKAK", data$quartier)
+data$quartier <- gsub("AWAILLE","AWAE",data$quartier) 
+data$quartier <- gsub("TERMINUS","MIMBOMAN TERMINUS",data$quartier) 
+data$quartier <- gsub("NKLOBISONNE","NKOLBISSON",data$quartier) 
+data$quartier <- gsub("EMANA FOKOU","EMANA",data$quartier) 
 data$quartier <- gsub("MESSA","CAMP SIC MESSA",data$quartier)
+data$quartier <- gsub("NSIMEYONG","SHELL NSIMEYONG",data$quartier)
 
 
 
@@ -136,14 +102,14 @@ data_final <- separate_rows(data, achat_category, sep = ",")
 words_to_replace <- c("huile velours "," huile velours","savon or ","savon or","5 savons métis",
                       "amino","the soir","gélule minceur",
                       "gélules slimax","fabulons","thé jour","gélules minceurs"," crème metiss", 
-                      " gant gommant", " gélules minceurs","crème metiss","fabulons","soins corporels") #," gommage fabulons",,"fabulous"
-                     # "gommage fabulons", "gommage fabulous") 
+                      " gant gommant", " gélules minceurs","crème metiss","fabulons","soins corporels",
+                      " gommage")
 
 replacements <- c("huile velours","huile velours","savon 24k","savon 24k","savon métiss",
                   "savon Amino Carimo","thé yamad soir",
                   "gelules amincissantes","gelules amincissantes","fabulous","thé matin","gelules amincissantes",
-                  "crème metiss","eponge gommante","gelules amincissantes","crème visage metiss","fabulous","hammam")#,"gommage fabulous",,"gommage fabulous"
-                  #"gommage fabulous","gommage fabulous")
+                  "crème metiss","eponge gommante","gelules amincissantes","crème visage metiss","fabulous","hammam",
+                  "gommage fabulous")
 
 data_final <- data_final %>%
   mutate(new = str_replace_all(achat_category, setNames(replacements, words_to_replace)))
@@ -177,13 +143,12 @@ data_unique <- df_correspondances %>%
 file_path <- "./data/cameroon-latest.osm.pbf"
 
 # Lire le fichier .pbf
-#data_geo <- st_read(file_path)
 data_geo <- readRDS("data/qquaters.rds")
 data_geo$name <- str_to_upper(data_geo$name)
 list_to_exclude <- c("BASTOS","MADAGASCAR","MELEN","MENDONG","NSAM","MESSA","MANGUIER","EMANA","NGOUSSO")
 data_geo <- data_geo %>%
   filter(!name %in% list_to_exclude)
-data_geo$name <- gsub("EMOMBO CHAPELLE","EMOMBO",data_geo$name)
+data_geo$name <- gsub("MARCHÉ DE MVOG MBI","MVOG MBI",data_geo$name)
 data_geo$name <- gsub("CARREFOUR BIYEM-ASSI","BIYEM ASSI",data_geo$name) 
 data_geo$name <- gsub("CARREFOUR MESSASSI","MESSASSI",data_geo$name) 
 data_geo$name <- gsub("EMOMBO CHAPELLE","EMOMBO",data_geo$name) 
@@ -208,6 +173,10 @@ data_geo$name <- gsub("RUE MANGUIERS","MANGUIER",data_geo$name)
 data_geo$name <- gsub("EMANA PONT","EMANA",data_geo$name) 
 data_geo$name <- gsub("DOVV NGOUSSO","NGOUSSO",data_geo$name) 
 data_geo$name <- gsub("EDEA PARK","EDEA",data_geo$name) 
+data_geo$name <- gsub("ARCHITEC LES CONCEPTEURS RÉUNIS, TITI GARAGE, YAOUNDÉ","TITI GARAGE",data_geo$name) 
+
+# data_geo <- data_geo %>%
+#   mutate(geometry = ifelse(name == "NSIMEYONG", "POINT (11.49596 3.8399)", geometry))
 
 
 

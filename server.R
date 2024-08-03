@@ -46,16 +46,7 @@ server <- function(input, output, session) {
     filterStates$filterButton <- FALSE
   })
   
-  # observeEvent(filterStates$citySelected,{
-  #   if(filterStates$citySelected == "TOUT"){
-  #     choice = c("tout")
-  #   } else if(filterStates$citySelected == "EDEA"){
-  #     choice = unique(data_unique$carimo_product[data_unique$ville == filterStates$citySelected])
-  #   } else{
-  #     choice = c("tout",as.character(unique(data_unique$carimo_product)))
-  #   }
-  #   updateSelectInput(session, "statusInput", choices = choice)
-  # })
+  
   
   observeEvent(input$cityInput,{
     if(input$cityInput == "TOUT"){
@@ -64,7 +55,11 @@ server <- function(input, output, session) {
       choice = unique(data_unique$carimo_product[data_unique$ville == input$cityInput])
     } else if (input$cityInput == "BAFOUSSAM"){
       choice = unique(data_unique$carimo_product[data_unique$ville == input$cityInput])
-    }else{
+    } else if (input$cityInput == "DOUALA") {
+      choice = unique(data_unique$carimo_product[data_unique$ville == input$cityInput])
+      
+    }
+    else{
       choice = c("TOUT",as.character(unique(data_unique$carimo_product)))
     }
     updateSelectInput(session, "statusInput", choices = choice)
@@ -148,7 +143,7 @@ server <- function(input, output, session) {
   
   nb_customers <-reactiveVal(NULL)
   observe({
-    nb_customers(nrow(as.data.frame(unique(filtered_data()$phone_number))))
+    nb_customers(nrow(as.data.frame(unique(filtered_data()$name))))
     saveRDS(nb_customers(), paste("data/","nb_customers",".rds", sep = ""))
   })
   amount_sales <- reactiveVal(NULL)
